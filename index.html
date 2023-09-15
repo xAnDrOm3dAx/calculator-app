@@ -1,26 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css-reset.css">
+  <script src="main.js"></script>
   <title>Frontend Mentor | Calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
+  <section class="calc-container">
+    <header class="header">
+      <h1>calc</h1>
+      <p>theme</p>
+    </header>
+    <div id="display">
+      <span class="output">0</span>
+    </div>
+    <div class="keypad">
+      <button id="clear">CLEAR</button>
+      <button id="delete">DEL</button>
+      <button id="obelus" value="obelus">&divide;</button>
+      <button id="seven" value="7">7</button>
+      <button id="eight" value="8">8</button>
+      <button id="nine" value="9">9</button>
+      <button id="times" value="times">&times;</button>
+      <button id="four" value="4">4</button>
+      <button id="five" value="5">5</button>
+      <button id="six" value="6">6</button>
+      <button id="minus" value="minus">&minus;</button>
+      <button id="one" value="1">1</button>
+      <button id="two" value="2">2</button>
+      <button id="three" value="3">3</button>
+      <button id="plus" value="plus">&plus;</button>
+      <button id="zero" value="0">0</button>
+      <button id="period">&period;</button>
+      <button id="equals">&equals;</button>
+    </div>
+  </section>
 
 
-  
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"><span>Frontend Mentor</span> &
+      <a href="https://www.theodinproject.com/lessons/foundations-calculator" target="_blank"><span>The Odin
+          Project</span></a>.
+      Coded by <a href="#">Christopher Werkmeister</a>.
   </div>
 </body>
+
 </html>
