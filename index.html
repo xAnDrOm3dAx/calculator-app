@@ -5,50 +5,70 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css-reset.css">
+  <link rel="stylesheet" href="style.css">
   <script src="main.js"></script>
   <title>Frontend Mentor | Calculator app</title>
 </head>
 
 <body>
   <section class="calc-container">
-    <header class="header">
+    <header>
       <h1>calc</h1>
-      <p>theme</p>
     </header>
-    <div id="display">
-      <span class="output">0</span>
+    <div class="display">
+      <div class="previous-operand"></div>
+      <div class="current-operand">000</div>
     </div>
     <div class="keypad">
-      <button id="clear">CLEAR</button>
+      <button id="clear" class="span-two">CLEAR</button>
       <button id="delete">DEL</button>
-      <button id="obelus" value="obelus">&divide;</button>
-      <button id="seven" value="7">7</button>
-      <button id="eight" value="8">8</button>
-      <button id="nine" value="9">9</button>
-      <button id="times" value="times">&times;</button>
-      <button id="four" value="4">4</button>
-      <button id="five" value="5">5</button>
-      <button id="six" value="6">6</button>
-      <button id="minus" value="minus">&minus;</button>
-      <button id="one" value="1">1</button>
-      <button id="two" value="2">2</button>
-      <button id="three" value="3">3</button>
-      <button id="plus" value="plus">&plus;</button>
-      <button id="zero" value="0">0</button>
+      <button id="obelus">&divide;</button>
+      <button id="seven">7</button>
+      <button id="eight">8</button>
+      <button id="nine">9</button>
+      <button id="times">&times;</button>
+      <button id="four">4</button>
+      <button id="five">5</button>
+      <button id="six">6</button>
+      <button id="minus">&minus;</button>
+      <button id="one">1</button>
+      <button id="two">2</button>
+      <button id="three">3</button>
+      <button id="plus">&plus;</button>
+      <button id="zero">0</button>
       <button id="period">&period;</button>
-      <button id="equals">&equals;</button>
+      <button id="equals" class="span-two">&equals;</button>
+
+
+      <!-- <div class="keypad">
+        <button id="clear span-two">CLEAR</button>
+        <button id="delete">DEL</button>
+        <button data-operation id="obelus">&divide;</button>
+        <button data-number id="seven">7</button>
+        <button data-number id="eight">8</button>
+        <button data-number id="nine">9</button>
+        <button data-operation id="times">&times;</button>
+        <button data-number id="four">4</button>
+        <button data-number id="five">5</button>
+        <button data-number id="six">6</button>
+        <button data-operation id="minus">&minus;</button>
+        <button data-number id="one">1</button>
+        <button data-number id="two">2</button>
+        <button data-number id="three">3</button>
+        <button data-operation id="plus">&plus;</button>
+        <button data-number id="zero">0</button>
+        <button id="period">&period;</button>
+        <button id="equals">&equals;</button> -->
+
+
     </div>
   </section>
 
 
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"><span>Frontend Mentor</span> &
-      <a href="https://www.theodinproject.com/lessons/foundations-calculator" target="_blank"><span>The Odin
-          Project</span></a>.
-      Coded by <a href="#">Christopher Werkmeister</a>.
-  </div>
+  <footer>
+    Coded by Christopher Werkmeister to The Odin Project</a>.
+  </footer>
 </body>
 
 </html>
