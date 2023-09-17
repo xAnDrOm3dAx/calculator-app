@@ -5,20 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="css-reset.css">
+  <!-- <link rel="stylesheet" href="css-reset.css"> -->
   <link rel="stylesheet" href="style.css">
-  <script src="main.js"></script>
-  <title>Frontend Mentor | Calculator app</title>
+  <script src="main.js" defer></script>
+
+  <title>Calculator App 1</title>
 </head>
 
 <body>
-  <section class="calc-container">
-    <header>
-      <h1>calc</h1>
-    </header>
+  <div class="calc-container">
+    <h1>Calculator</h1>
     <div class="display">
-      <div class="previous-operand"></div>
-      <div class="current-operand">000</div>
+      <div id="previous-operand" class="previous-operand">000</div>
+      <div id="current-operand" class="current-operand">000</div>
     </div>
     <div class="keypad">
       <button id="clear" class="span-two">CLEAR</button>
@@ -39,36 +38,12 @@
       <button id="zero">0</button>
       <button id="period">&period;</button>
       <button id="equals" class="span-two">&equals;</button>
-
-
-      <!-- <div class="keypad">
-        <button id="clear span-two">CLEAR</button>
-        <button id="delete">DEL</button>
-        <button data-operation id="obelus">&divide;</button>
-        <button data-number id="seven">7</button>
-        <button data-number id="eight">8</button>
-        <button data-number id="nine">9</button>
-        <button data-operation id="times">&times;</button>
-        <button data-number id="four">4</button>
-        <button data-number id="five">5</button>
-        <button data-number id="six">6</button>
-        <button data-operation id="minus">&minus;</button>
-        <button data-number id="one">1</button>
-        <button data-number id="two">2</button>
-        <button data-number id="three">3</button>
-        <button data-operation id="plus">&plus;</button>
-        <button data-number id="zero">0</button>
-        <button id="period">&period;</button>
-        <button id="equals">&equals;</button> -->
-
-
     </div>
-  </section>
+  </div>
 
-
-  <footer>
+  <div class="footer">
     Coded by Christopher Werkmeister to The Odin Project</a>.
-  </footer>
+  </div>
 </body>
 
 </html>
