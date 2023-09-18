@@ -49,6 +49,7 @@ h1 {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  justify-content: space-between;
   word-wrap: break-word;
   word-break: break-all;
 }
