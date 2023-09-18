@@ -7,7 +7,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <!-- <link rel="stylesheet" href="css-reset.css"> -->
   <link rel="stylesheet" href="style.css">
-  <script src="main.js" defer></script>
+  <script src="script.js" defer></script>
 
   <title>Calculator App - Christopher Werkmeister</title>
 </head>
@@ -16,28 +16,28 @@
   <div class="calc-container">
     <h1>Calculator</h1>
     <div class="display">
-      <div id="previous-operand" class="previous-operand">000</div>
-      <div id="current-operand" class="current-operand">000</div>
+      <div data-previous-operand id="previous-operand" class="previous-operand"></div>
+      <div data-current-operand id="current-operand" class="current-operand"></div>
     </div>
     <div class="keypad">
-      <button id="clear" class="span-two">CLEAR</button>
-      <button id="delete">DEL</button>
-      <button id="obelus">&divide;</button>
-      <button id="seven">7</button>
-      <button id="eight">8</button>
-      <button id="nine">9</button>
-      <button id="times">&times;</button>
-      <button id="four">4</button>
-      <button id="five">5</button>
-      <button id="six">6</button>
-      <button id="minus">&minus;</button>
-      <button id="one">1</button>
-      <button id="two">2</button>
-      <button id="three">3</button>
-      <button id="plus">&plus;</button>
-      <button id="zero">0</button>
-      <button id="period">&period;</button>
-      <button id="equals" class="span-two">&equals;</button>
+      <button data-clear-all class="span-two">CLEAR</button>
+      <button data-delete>DEL</button>
+      <button data-operator>÷</button>
+      <button data-number>7</button>
+      <button data-number>8</button>
+      <button data-number>9</button>
+      <button data-operator>x</button>
+      <button data-number>4</button>
+      <button data-number>5</button>
+      <button data-number>6</button>
+      <button data-operator>-</button>
+      <button data-number>1</button>
+      <button data-number>2</button>
+      <button data-number>3</button>
+      <button data-operator>+</button>
+      <button data-number>0</button>
+      <button data-number>.</button>
+      <button data-equals class="span-two">&equals;</button>
     </div>
   </div>
 
