@@ -25,14 +25,14 @@ body {
 }
 
 .calc-container {
-  margin: 1rem;
-  padding:  1rem;
+  margin: 15px;
+  padding:  15px;
   border-radius: 10px;
   background-color: hsl(223, 31%, 20%);
 }
 
 h1 {
-  margin: 1rem 0;
+  margin: 15px 0;
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 1);;
 }
@@ -40,8 +40,8 @@ h1 {
 .display {
   width: 280px;
   min-height: 100px;
-  margin-bottom: 1rem;
-  border-radius: 0.3rem;
+  margin-bottom: 15px;
+  border-radius: 5px;
   padding: 10px;
   gap: 20px;
   background-color: rgba(0, 0, 0, 0.75);
@@ -65,7 +65,7 @@ h1 {
 }
 
 .keypad {
-  gap: .5rem;
+  gap: 8px;
   display: grid;
   grid-template-rows: repeat(5, 4rem);
   grid-template-columns: repeat(4, 4rem);
@@ -73,7 +73,7 @@ h1 {
 
 .keypad > button {
   background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 0.3rem;
+  border-radius: 5px;
   border: none;
   font-size: 1.5rem;
   cursor: pointer;
@@ -86,14 +86,6 @@ h1 {
 .span-two {
   grid-column: span 2;
 }
-
-/* #clear, #delete {
-background-color: hsl(224, 21%, 49%);
-} */
-
-/* #equals {
-  background-color: hsl(6, 63%, 50%);
-} */
 
 .footer {
   color: rgba(255, 255, 255, 1);;
