@@ -2,16 +2,13 @@
 let currentValue = "";
 let previousValue = "";
 let operator = "";
-result = "";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Grab all HTML elements
   const topDisplay = document.querySelector("[data-top-display]");
   const bottomDisplay = document.querySelector("[data-bottom-display]");
-
   const numberButtons = document.querySelectorAll("[data-number]");
   const operatorButtons = document.querySelectorAll("[data-operator]");
-
   const decimalButton = document.querySelector("[data-decimal]");
   const equalsButton = document.querySelector("[data-equals]");
   const deleteButton = document.querySelector("[data-delete]");
@@ -29,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     opButton.addEventListener("click", function (e) {
       handleDataOperator(e.target.textContent);
       topDisplay.textContent = `${previousValue} ${operator}`;
-      bottomDisplay.textContent = currentValue;
+      bottomDisplay.textContent = "";
     })
   );
 
@@ -49,11 +46,11 @@ document.addEventListener("DOMContentLoaded", function () {
   equalsButton.addEventListener("click", () => {
     evaluate();
     topDisplay.textContent = "";
-    bottomDisplay.textContent = result;
+    bottomDisplay.textContent = currentValue;
     // previousValue = "";
-    currentValue = result;
+
     console.log(previousValue);
-    console.log(result);
+    console.log(typeof currentValue);
   });
 });
 
@@ -86,39 +83,38 @@ function evaluate() {
   currentValue = Number(currentValue);
   previousValue = Number(previousValue);
 
+  // Check if there is a valid operator
+  if (!operator) {
+    currentValue = ""; // Clear the result if there's no operator
+    return;
+  }
+
   switch (operator) {
     case "+":
-      result = add(currentValue, previousValue);
+      currentValue = add(currentValue, previousValue);
       break;
     case "-":
-      result = subtract(previousValue, currentValue);
+      currentValue = subtract(previousValue, currentValue);
       break;
     case "x":
-      result = multiply(currentValue, previousValue);
+      currentValue = multiply(currentValue, previousValue);
       break;
     case "÷":
-      result = divide(previousValue, currentValue);
+      currentValue = divide(previousValue, currentValue);
       break;
     default:
       "";
   }
-
-  // Alternative
-  // if (operator === "") return;
-  // if (operator === "+") result = add(currentValue, previousValue);
-  // if (operator === "-") result = subtract(previousValue, currentValue);
-  // if (operator === "x") result = multiply(currentValue, previousValue);
-  // if (operator === "÷") result = divide(previousValue, currentValue);
 
   // Use this function to round the result to 5 decimal places.
   function roundNumber(value) {
     return Number(value.toFixed(5));
   }
 
-  result = roundNumber(result);
+  currentValue = roundNumber(currentValue);
 
   // Convert the result to a string to ensure currentValue remains a string
-  currentValue = currentValue.toString();
+  currentValue = currentValue.toString(); // Was currentValue = currentValue.toString();
   previousValue = previousValue.toString();
 }
 
