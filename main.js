@@ -52,6 +52,11 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(previousValue);
     console.log(typeof currentValue);
   });
+
+  decimalButton.addEventListener("click", () => {
+    addDecimal();
+    bottomDisplay.textContent = currentValue;
+  });
 });
 
 function handleDataNumber(number) {
@@ -61,7 +66,8 @@ function handleDataNumber(number) {
 }
 
 function handleDataOperator(clickedOperator) {
-  if (currentValue === "") return; // Check if bottom display has a value, and if not, return and do not display the operator
+  if (!currentValue) return; // Check if bottom display has a value, and if not, return and do not display the operator
+  // if (currentValue === "") return;
   operator = clickedOperator;
   previousValue = currentValue;
   currentValue = "";
@@ -114,8 +120,14 @@ function evaluate() {
   currentValue = roundNumber(currentValue);
 
   // Convert the result to a string to ensure currentValue remains a string
-  currentValue = currentValue.toString(); // Was currentValue = currentValue.toString();
+  currentValue = currentValue.toString();
   previousValue = previousValue.toString();
+}
+
+function addDecimal() {
+  if (!currentValue.includes(".")) {
+    currentValue += ".";
+  }
 }
 
 // Calc Functions
