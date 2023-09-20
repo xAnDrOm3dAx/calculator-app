@@ -2,6 +2,7 @@
 let currentValue = "";
 let previousValue = "";
 let operator = "";
+result = "";
 
 document.addEventListener("DOMContentLoaded", function () {
   // Grab all HTML elements
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
   operatorButtons.forEach((opButton) =>
     opButton.addEventListener("click", function (e) {
       handleDataOperator(e.target.textContent);
-      topDisplay.textContent = previousValue + " " + operator;
+      topDisplay.textContent = `${previousValue} ${operator}`;
       bottomDisplay.textContent = currentValue;
     })
   );
@@ -42,12 +43,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // Add event listener to delete last number from bottom display
-  deleteButton.addEventListener("click", () => {
-    deleteLastNumber(bottomDisplay); // Pass function the bottom display to work with
+  deleteButton.addEventListener("click", () => deleteLastNumber(bottomDisplay)); // Pass function the bottom display to work with
+
+  // Add event listener to perform calculations when equals button is pressed
+  equalsButton.addEventListener("click", () => {
+    evaluate();
+    topDisplay.textContent = "";
+    bottomDisplay.textContent = result;
+    // previousValue = "";
+    currentValue = result;
+    console.log(previousValue);
+    console.log(result);
   });
 });
-
-// Create a new function calculate that takes an operator and 2 numbers and then calls one of the above functions on the numbers
 
 function handleDataNumber(number) {
   if (currentValue.length < 12) {
@@ -69,58 +77,86 @@ function deleteLastNumber(display) {
   display.textContent = currentValue;
 }
 
-function calculate() {
-  if (operator === "") {
-    return;
-  } else {
-    switch (operator) {
-      case "+":
-        result = add(num1, num2);
-      case "-":
-        result = subtract(num1, num2);
-      case "*":
-        result = multiply(num1, num2);
-      case "/":
-        result = divide(num1, num2);
-    }
+function evaluate() {
+  const add = (a, b) => a + b;
+  const subtract = (a, b) => a - b;
+  const multiply = (a, b) => a * b;
+  const divide = (a, b) => a / b;
+
+  currentValue = Number(currentValue);
+  previousValue = Number(previousValue);
+
+  switch (operator) {
+    case "+":
+      result = add(currentValue, previousValue);
+      break;
+    case "-":
+      result = subtract(previousValue, currentValue);
+      break;
+    case "x":
+      result = multiply(currentValue, previousValue);
+      break;
+    case "÷":
+      result = divide(previousValue, currentValue);
+      break;
+    default:
+      "";
   }
+
+  // Alternative
+  // if (operator === "") return;
+  // if (operator === "+") result = add(currentValue, previousValue);
+  // if (operator === "-") result = subtract(previousValue, currentValue);
+  // if (operator === "x") result = multiply(currentValue, previousValue);
+  // if (operator === "÷") result = divide(previousValue, currentValue);
+
+  // Use this function to round the result to 5 decimal places.
+  function roundNumber(value) {
+    return Number(value.toFixed(5));
+  }
+
+  result = roundNumber(result);
+
+  // Convert the result to a string to ensure currentValue remains a string
+  currentValue = currentValue.toString();
+  previousValue = previousValue.toString();
 }
 
 // Calc Functions
 
-function add(num1, num2) {
-  return num1 + num2;
-}
-// const add = (num1, num2) => num1 + num2;
+// function add(a, b) {
+//   return a + b;
+// }
+// const add = (a, b) => a + b;
 
 // const add = function (a, b) {
 //   return a + b;
 // }
 
-function subtract(num1, num2) {
-  return num1 - num2;
-}
-// const subtract = (num1, num2) => num1 - num2;
+// function subtract(a, b) {
+//   return a - b;
+// }
+// const subtract = (a, b) => a - b;
 
 // const subtract = function (a, b) {
 //   return a - b;
 // }
 
-function multiply(num1, num2) {
-  return num1 * num2;
-}
-// const multiply = (num1, num2) => num1 * num2;
+// function multiply(a, b) {
+//   return a * b;
+// }
+// const multiply = (a, b) => a * b;
 
 // const multiply = function (a, b) {
 //   return a * b;
 // }
 
-function divide(num1, num2) {
-  return num1 / num2;
-}
+// function divide(a, b) {
+//   return a / b;
+// }
 
 // const divide = function (a, b) {
 //   return a / b;
 // }
 
-// const divide = (num1, num2) => num1 / num2;
+// const divide = (a, b) => a / b;
