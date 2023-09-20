@@ -1,3 +1,8 @@
+// Global Variables
+let currentValue = "";
+let previousValue = "";
+let operator = "";
+
 document.addEventListener("DOMContentLoaded", function () {
   // Grab all HTML elements
   const topDisplay = document.querySelector("[data-top-display]");
@@ -18,8 +23,16 @@ document.addEventListener("DOMContentLoaded", function () {
       bottomDisplay.textContent = currentValue;
     })
   );
+  // Add event listener for each operator button
+  operatorButtons.forEach((opButton) =>
+    opButton.addEventListener("click", function (e) {
+      handleDataOperator(e.target.textContent);
+      topDisplay.textContent = previousValue + " " + operator;
+      bottomDisplay.textContent = currentValue;
+    })
+  );
 
-  // Add event listener for clear button. Once clicked, return all values to "".
+  // Add event listener for clear button. Once clicked, return all values to ""
   clearButton.addEventListener("click", function () {
     currentValue = ""; // Clear the current value
     previousValue = "";
@@ -27,16 +40,14 @@ document.addEventListener("DOMContentLoaded", function () {
     topDisplay.textContent = ""; // Update the display
     bottomDisplay.textContent = "";
   });
+
+  // Add event listener to delete last number from bottom display
+  deleteButton.addEventListener("click", () => {
+    deleteLastNumber(bottomDisplay); // Pass function the bottom display to work with
+  });
 });
 
-// Global Variables
-
-let currentValue = "";
-let previousValue = "";
-let operator = "";
-let result = "";
-
-// Create a new function calculate that takes an operator and 2 numbers and then calls one of the above functions on the numbers.
+// Create a new function calculate that takes an operator and 2 numbers and then calls one of the above functions on the numbers
 
 function handleDataNumber(number) {
   if (currentValue.length < 12) {
@@ -44,10 +55,18 @@ function handleDataNumber(number) {
   }
 }
 
-function handleDataOperator() {}
+function handleDataOperator(clickedOperator) {
+  if (currentValue === "") return; // Check if bottom display has a value, and if not, return and do not display the operator
+  operator = clickedOperator;
+  previousValue = currentValue;
+  currentValue = "";
+}
 
-function deleteLastNumber() {
-  //slice(0, -1)
+function deleteLastNumber(display) {
+  // Use slice to remove the last character from currentValue
+  currentValue = currentValue.slice(0, -1);
+  // Update the bottomDisplay with the updated currentValue
+  display.textContent = currentValue;
 }
 
 function calculate() {
