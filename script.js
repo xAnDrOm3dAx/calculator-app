@@ -89,8 +89,8 @@ class Calculator {
   }
 }
 
-const previousOperandElement = document.querySelector("[data-previous-operand]");
-const currentOperandElement = document.querySelector("[data-current-operand]");
+const previousOperandElement = document.querySelector("[data-top-display]");
+const currentOperandElement = document.querySelector("[data-bottom-display]");
 const numberButtons = document.querySelectorAll("[data-number]");
 const operatorButtons = document.querySelectorAll("[data-operator]");
 const equalsButton = document.querySelector("[data-equals]");
