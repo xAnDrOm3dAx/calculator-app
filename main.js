@@ -89,13 +89,15 @@ function addDecimal() {
 }
 
 function evaluate() {
+  let result;
+
   const add = (a, b) => a + b;
   const subtract = (a, b) => a - b;
   const multiply = (a, b) => a * b;
   const divide = (a, b) => a / b;
 
-  currentValue = Number(currentValue);
-  previousValue = Number(previousValue);
+  const current = Number(currentValue);
+  const previous = Number(previousValue);
 
   // Check if there is a valid operator
   if (!operator) {
@@ -103,24 +105,25 @@ function evaluate() {
     return;
   }
 
-  if (isNaN(previousValue) || isNaN(currentValue)) {
+  // Check if values are numbers before evaluating, if not, exit function.
+  if (isNaN(previous) || isNaN(current)) {
     return;
   } else {
     switch (operator) {
       case "+":
-        currentValue = add(currentValue, previousValue);
+        result = add(current, previous);
         break;
       case "-":
-        currentValue = subtract(previousValue, currentValue);
+        result = subtract(previous, current);
         break;
       case "x":
-        currentValue = multiply(currentValue, previousValue);
+        result = multiply(current, previous);
         break;
       case "÷":
-        currentValue = divide(previousValue, currentValue);
+        result = divide(previous, current);
         break;
       default:
-        "";
+        return;
     }
   }
 
@@ -129,10 +132,60 @@ function evaluate() {
     return Number(value.toFixed(5));
   }
 
-  currentValue = roundNumber(currentValue);
+  currentValue = roundNumber(result);
   operator = "";
 
   // Convert the result to a string to ensure currentValue remains a string
   currentValue = currentValue.toString();
   previousValue = previousValue.toString();
 }
+
+// function evaluate() {
+//   const add = (a, b) => a + b;
+//   const subtract = (a, b) => a - b;
+//   const multiply = (a, b) => a * b;
+//   const divide = (a, b) => a / b;
+
+//   currentValue = Number(currentValue);
+//   previousValue = Number(previousValue);
+
+//   // Check if there is a valid operator
+//   if (!operator) {
+//     currentValue = ""; // Clear the result if there's no operator
+//     return;
+//   }
+
+//   // Check if values are numbers before evaluating
+//   if (isNaN(previousValue) || isNaN(currentValue)) {
+//     return;
+//   } else {
+//     switch (operator) {
+//       case "+":
+//         currentValue = add(currentValue, previousValue);
+//         break;
+//       case "-":
+//         currentValue = subtract(previousValue, currentValue);
+//         break;
+//       case "x":
+//         currentValue = multiply(currentValue, previousValue);
+//         break;
+//       case "÷":
+//         currentValue = divide(previousValue, currentValue);
+//         break;
+//       default:
+//         "";
+//     }
+//   }
+
+//   // Use this function to round the result to 5 decimal places.
+//   function roundNumber(value) {
+//     return Number(value.toFixed(5));
+//   }
+
+//   currentValue = roundNumber(currentValue);
+//   operator = "";
+
+//   // Convert the result to a string to ensure currentValue remains a string
+//   currentValue = currentValue.toString();
+//   previousValue = previousValue.toString();
+// }
