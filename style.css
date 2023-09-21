@@ -75,7 +75,6 @@ button {
   cursor: pointer;
   color: #000;
   float: none;
-  margin: 0 auto;
 }
 
 button:active {
