@@ -31,8 +31,8 @@ Build a simple, fully functional calculator using HTML, CSS, and Javascript.
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/xAnDrOm3dAx/calculator-app)
-- Live Site URL: [Add live site URL here](https://xandrom3dax.github.io/calculator-app/)
+- Solution URL: https://github.com/xAnDrOm3dAx/calculator-app
+- Live Site URL: https://xandrom3dax.github.io/calculator-app/
 
 ## My process
 
