@@ -74,7 +74,7 @@ button {
   font-size: 1.4rem;
   cursor: pointer;
   color: #000;
-  float: none;
+  text-align: center;
 }
 
 button:active {
