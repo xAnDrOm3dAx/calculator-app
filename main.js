@@ -48,8 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
     topDisplay.textContent = "";
     bottomDisplay.textContent = currentValue;
     previousValue = "";
-    // console.log(previousValue);
-    // console.log(typeof currentValue);
   });
 
   decimalButton.addEventListener("click", () => {
@@ -72,7 +70,6 @@ function handleDataOperator(clickedOperator) {
     evaluate();
   }
 
-  // Check if bottom display has a value, and if not, return and do not display the operator
   operator = clickedOperator;
   previousValue = currentValue;
   currentValue = ""; // Clear current value for the next input
@@ -106,21 +103,25 @@ function evaluate() {
     return;
   }
 
-  switch (operator) {
-    case "+":
-      currentValue = add(currentValue, previousValue);
-      break;
-    case "-":
-      currentValue = subtract(previousValue, currentValue);
-      break;
-    case "x":
-      currentValue = multiply(currentValue, previousValue);
-      break;
-    case "÷":
-      currentValue = divide(previousValue, currentValue);
-      break;
-    default:
-      "";
+  if (isNaN(previousValue) || isNaN(currentValue)) {
+    return;
+  } else {
+    switch (operator) {
+      case "+":
+        currentValue = add(currentValue, previousValue);
+        break;
+      case "-":
+        currentValue = subtract(previousValue, currentValue);
+        break;
+      case "x":
+        currentValue = multiply(currentValue, previousValue);
+        break;
+      case "÷":
+        currentValue = divide(previousValue, currentValue);
+        break;
+      default:
+        "";
+    }
   }
 
   // Use this function to round the result to 5 decimal places.
