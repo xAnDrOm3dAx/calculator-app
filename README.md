@@ -11,10 +11,7 @@ This is a solution to the [Calculator app challenge on The Odin Project](https:/
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
+  - [Code that I am proud of](#code-that-I-am-proud-of)
 
 ## Overview
 
@@ -34,8 +31,8 @@ Build a simple, fully functional calculator using HTML, CSS, and Javascript.
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://github.com/xAnDrOm3dAx/calculator-app)
+- Solution URL: [Add solution URL here](https://github.com/xAnDrOm3dAx/calculator-app)
+- Live Site URL: [Add live site URL here](https://xandrom3dax.github.io/calculator-app/)
 
 ## My process
 
@@ -56,8 +53,9 @@ I used multiple sources to compile the code needed, and I refactored the code in
 3. Getting more confident with the addEventListener Syntax.
 4. Utilizing the event.target property.
 
+### Code that I am proud of
+
 ```js
-<h1>Some js code that I'm proud of</h1>;
 function evaluate() {
   let result;
 
