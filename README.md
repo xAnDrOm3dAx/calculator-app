@@ -1,4 +1,4 @@
-# Frontend Mentor - Calculator app solution
+# The Odin Project - Calculator app solution
 
 This is a solution to the [Calculator app challenge on The Odin Project](https://www.theodinproject.com/lessons/foundations-calculator). The final project which is part of the foundations course.
 
