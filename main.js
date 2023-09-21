@@ -44,10 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Add event listener to perform calculations when equals button is pressed
   equalsButton.addEventListener("click", () => {
-    evaluate();
-    topDisplay.textContent = "";
-    bottomDisplay.textContent = currentValue;
-    previousValue = "";
+    if (currentValue === "" || previousValue === "") {
+      currentValue = "<(o_0)> Oh Hi!";
+      bottomDisplay.textContent = "<(o_0)> Oh Hi!";
+      return;
+    } else {
+      evaluate();
+      topDisplay.textContent = "";
+      bottomDisplay.textContent = currentValue;
+      previousValue = "";
+    }
   });
 
   decimalButton.addEventListener("click", () => {
