@@ -63,6 +63,7 @@ h1 {
   display: grid;
   grid-template-rows: repeat(5, 4rem);
   grid-template-columns: repeat(4, 4rem);
+  text-align: center;
 }
 
 button {
@@ -70,10 +71,9 @@ button {
   border-radius: 7px;
   border: none;
   border-bottom: 3px solid rgb(136, 136, 136);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   cursor: pointer;
   color: #000;
-  text-align: center;
 }
 
 button:active {
