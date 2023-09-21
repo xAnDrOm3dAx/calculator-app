@@ -90,10 +90,3 @@ button:active {
   color: rgba(255, 255, 255, 1);
   margin-bottom: 20px;
 }
-
-/* @media only screen and (max-width: 390px) {
-  .button {
-    float: none;
-    margin: 0 auto;
-  }
-} */
