@@ -30,7 +30,7 @@ Build a simple, fully functional calculator using HTML, CSS, and Javascript.
 
 ### Screenshot
 
-![screenshot](/screenshot.png)
+![screenshot](screenshot.png)
 
 ### Links
 
