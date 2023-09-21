@@ -47,10 +47,9 @@ document.addEventListener("DOMContentLoaded", function () {
     evaluate();
     topDisplay.textContent = "";
     bottomDisplay.textContent = currentValue;
-    // previousValue = "";
-
-    console.log(previousValue);
-    console.log(typeof currentValue);
+    previousValue = "";
+    // console.log(previousValue);
+    // console.log(typeof currentValue);
   });
 
   decimalButton.addEventListener("click", () => {
@@ -66,11 +65,17 @@ function handleDataNumber(number) {
 }
 
 function handleDataOperator(clickedOperator) {
-  if (!currentValue) return; // Check if bottom display has a value, and if not, return and do not display the operator
-  // if (currentValue === "") return;
+  if (currentValue === "") {
+    return;
+  } else if (previousValue !== "") {
+    // If there's a previous value and an operator, evaluate the expression
+    evaluate();
+  }
+
+  // Check if bottom display has a value, and if not, return and do not display the operator
   operator = clickedOperator;
   previousValue = currentValue;
-  currentValue = "";
+  currentValue = ""; // Clear current value for the next input
 }
 
 function deleteLastNumber(display) {
@@ -78,6 +83,12 @@ function deleteLastNumber(display) {
   currentValue = currentValue.slice(0, -1);
   // Update the bottomDisplay with the updated currentValue
   display.textContent = currentValue;
+}
+
+function addDecimal() {
+  if (!currentValue.includes(".")) {
+    currentValue += ".";
+  }
 }
 
 function evaluate() {
@@ -118,53 +129,9 @@ function evaluate() {
   }
 
   currentValue = roundNumber(currentValue);
+  operator = "";
 
   // Convert the result to a string to ensure currentValue remains a string
   currentValue = currentValue.toString();
   previousValue = previousValue.toString();
 }
-
-function addDecimal() {
-  if (!currentValue.includes(".")) {
-    currentValue += ".";
-  }
-}
-
-// Calc Functions
-
-// function add(a, b) {
-//   return a + b;
-// }
-// const add = (a, b) => a + b;
-
-// const add = function (a, b) {
-//   return a + b;
-// }
-
-// function subtract(a, b) {
-//   return a - b;
-// }
-// const subtract = (a, b) => a - b;
-
-// const subtract = function (a, b) {
-//   return a - b;
-// }
-
-// function multiply(a, b) {
-//   return a * b;
-// }
-// const multiply = (a, b) => a * b;
-
-// const multiply = function (a, b) {
-//   return a * b;
-// }
-
-// function divide(a, b) {
-//   return a / b;
-// }
-
-// const divide = function (a, b) {
-//   return a / b;
-// }
-
-// const divide = (a, b) => a / b;
