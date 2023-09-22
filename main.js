@@ -3,64 +3,67 @@ let currentValue = "";
 let previousValue = "";
 let operator = "";
 
-document.addEventListener("DOMContentLoaded", function () {
-  // Grab all HTML elements
-  const topDisplay = document.querySelector("[data-top-display]");
-  const bottomDisplay = document.querySelector("[data-bottom-display]");
-  const numberButtons = document.querySelectorAll("[data-number]");
-  const operatorButtons = document.querySelectorAll("[data-operator]");
-  const decimalButton = document.querySelector("[data-decimal]");
-  const equalsButton = document.querySelector("[data-equals]");
-  const deleteButton = document.querySelector("[data-delete]");
-  const clearButton = document.querySelector("[data-clear-all]");
+// Grab all HTML elements
+const topDisplay = document.querySelector("[data-top-display]");
+const bottomDisplay = document.querySelector("[data-bottom-display]");
+const numberButtons = document.querySelectorAll("[data-number]");
+const operatorButtons = document.querySelectorAll("[data-operator]");
+const decimalButton = document.querySelector("[data-decimal]");
+const equalsButton = document.querySelector("[data-equals]");
+const deleteButton = document.querySelector("[data-delete]");
+const clearButton = document.querySelector("[data-clear-all]");
 
-  // Add event listener for each number button
-  numberButtons.forEach((number) =>
-    number.addEventListener("click", function (e) {
-      handleDataNumber(e.target.textContent);
-      bottomDisplay.textContent = currentValue;
-    })
-  );
-  // Add event listener for each operator button
-  operatorButtons.forEach((opButton) =>
-    opButton.addEventListener("click", function (e) {
-      handleDataOperator(e.target.textContent);
-      topDisplay.textContent = `${previousValue} ${operator}`;
-      bottomDisplay.textContent = "";
-    })
-  );
+// ---- Event listeners ---- //
 
-  // Add event listener for clear button. Once clicked, return all values to ""
-  clearButton.addEventListener("click", function () {
-    currentValue = ""; // Clear the current value
-    previousValue = "";
-    operator = "";
-    topDisplay.textContent = ""; // Update the display
-    bottomDisplay.textContent = "";
-  });
-
-  // Add event listener to delete last number from bottom display
-  deleteButton.addEventListener("click", () => deleteLastNumber(bottomDisplay)); // Pass function the bottom display to work with
-
-  // Add event listener to perform calculations when equals button is pressed
-  equalsButton.addEventListener("click", () => {
-    if (currentValue === "" || previousValue === "") {
-      currentValue = "<(o_0)> Oh Hi!";
-      bottomDisplay.textContent = "<(o_0)> Oh Hi!";
-      return;
-    } else {
-      evaluate();
-      topDisplay.textContent = "";
-      bottomDisplay.textContent = currentValue;
-      previousValue = "";
-    }
-  });
-
-  decimalButton.addEventListener("click", () => {
-    addDecimal();
+// Add event listener for each number button
+numberButtons.forEach((number) =>
+  number.addEventListener("click", function (e) {
+    handleDataNumber(e.target.textContent);
     bottomDisplay.textContent = currentValue;
-  });
+  })
+);
+
+// Add event listener for each operator button
+operatorButtons.forEach((opButton) =>
+  opButton.addEventListener("click", function (e) {
+    handleDataOperator(e.target.textContent);
+    topDisplay.textContent = `${previousValue} ${operator}`;
+    bottomDisplay.textContent = "";
+  })
+);
+
+// Add event listener for clear button. Once clicked, return all values to ""
+clearButton.addEventListener("click", function () {
+  currentValue = ""; // Clear the current value
+  previousValue = "";
+  operator = "";
+  topDisplay.textContent = ""; // Update the display
+  bottomDisplay.textContent = "";
 });
+
+// Add event listener to delete last number from bottom display
+deleteButton.addEventListener("click", () => deleteLastNumber(bottomDisplay)); // Pass function the bottom display to work with
+
+// Add event listener to perform calculations when equals button is pressed
+equalsButton.addEventListener("click", () => {
+  if (currentValue === "" || previousValue === "") {
+    currentValue = "<(o_0)> Oh Hi!";
+    bottomDisplay.textContent = "<(o_0)> Oh Hi!";
+    return;
+  } else {
+    evaluate();
+    topDisplay.textContent = "";
+    bottomDisplay.textContent = currentValue;
+    previousValue = "";
+  }
+});
+
+decimalButton.addEventListener("click", () => {
+  addDecimal();
+  bottomDisplay.textContent = currentValue;
+});
+
+// ---- Functions ---- //
 
 function handleDataNumber(number) {
   if (currentValue.length < 12) {
