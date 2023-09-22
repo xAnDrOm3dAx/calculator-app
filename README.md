@@ -36,7 +36,7 @@ Build a simple, fully functional calculator using HTML, CSS, and Javascript.
 
 ## My process
 
-I used multiple sources to compile the code needed, and I refactored the code in my own way to get a better understanding of what is happening and to make it work.
+I used multiple sources to learn and compile the code needed, and I refactored the code in my own way to get a better understanding of what is happening and to make it work.
 
 ### Built with
 
